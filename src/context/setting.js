@@ -5,7 +5,7 @@ export default function Setting(props){
 const state={
     count:4,
     sortField:"string",
-    showCompleted:false,
+    showCompleted:true,
     toggleShow:()=>{ state.showCompleted=!state.showCompleted;  }
 
 }
