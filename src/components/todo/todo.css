@@ -1,0 +1,47 @@
+/* @import "~@blueprintjs/core/lib/scss/variables"; */
+ 
+@import "~normalize.css";
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+#f{
+    display: flex;
+    background-color:#FCE2DB;
+    flex-direction: column;
+    width: 30%;
+    height:300px;
+    font-size: 15px;
+    margin-left: 10px;
+    align-items:flex-start;
+    /* padding: 15px 10px 0 0; */
+    text-align: center;
+    padding: 20px;
+    justify-content: space-between;
+    /* display: inline-block; */
+    float: left;
+}
+.bp4-navbar{
+    background-color:#FF8FB1; 
+    color: black;
+}
+.bp4-elevation-4{
+    background-color:#cfb1de; 
+    width: 30%;
+    /* height:300px; */
+    float: right; 
+    justify-content: space-between;
+    text-align: center;  
+    margin: 10px 10px 10px 10px;
+}
+#next{
+    margin-top: 350px;
+    justify-content: center;
+    margin-left: 600px;
+    justify-content: space-between;
+    /* background-color: #FF8FB1; */
+    /* line-height: 50px; */
+}
+header{
+    justify-content: center;  
+    margin-left: 600px;
+    color: #7A4495;
+}
