@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# todo-app
+A Web Application for securely managing a To Do List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# UML
+[liveURLOnGithub](https://alsatarysamah.github.io/todo-app/)
 
-## Available Scripts
+[PR](https://github.com/alsatarysamah/todo-app/pull/1)
 
-In the project directory, you can run:
+![](../todo-app/public/todoUML.png)
 
-### `npm start`
+# Business Requirements
+The To Do Manager application has the following overall requirements:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Designed to match the mock-up
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Header, Main Section Footer
 
-### `npm test`
+- Use React Bootstrap for styling and visual components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The header should present the application title and main menu
 
-### `npm run build`
+- Home Link, which shows the list of To Do Items as noted below
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- A Login/Register/User section
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - When a user is not logged in:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    - Show Login and Register links
 
-### `npm run eject`
+      - Login: Renders a Login Form
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+        - Register: Renders a new user registration form
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+         - Require Fields:: Username, Password, Email, Role
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- When a user is logged in:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    - Show “Welcome username”
 
-## Learn More
+    - Show a “Logout” link
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+     - When clicked, this should remove any cookies you have set and remove access
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![](../todo-app/public/todo2.png)
+# Technical Requirements
+The application will be created with the following overall architecture and methodologies
 
-### Code Splitting
+React
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+ES6 Classes
 
-### Analyzing the Bundle Size
+Settings delivered to the application using 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Context
 
-### Making a Progressive Web App
+User Login & Permissions delivered to the 
+application using Context
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Local Storage / Cookies for storing login status
 
-### Advanced Configuration
+Local Storage / Cookies for storing user preferences
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Superagent or Axios for performing API 
 
-### Deployment
+Requests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+React Bootstrap for styling
 
-### `npm run build` fails to minify
+Test Driven Development, using Jest
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Tests will be runnable locally
+
+Deployment to cloud provider
