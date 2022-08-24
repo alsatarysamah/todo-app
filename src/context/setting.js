@@ -1,17 +1,31 @@
-import React,{useContext} from "react";
+import React,{useContext,useState,useEffect} from "react";
+import saveData,{getData} from "../hooks/saveData";
+
+
+
 export const settingContext=React.createContext();
+
 export default function Setting(props){
 // const setting=useContext(settingContext);
+
+const [count,setCount]=useState(2);
+const[showCompleted,setShowCompleted]=useState(true)
 const state={
-    count:4,
+    count:count,
     sortField:"string",
-    showCompleted:true,
-    toggleShow:()=>{ state.showCompleted=!state.showCompleted;  }
+    showCompleted:showCompleted,
+    setCount:setCount,
+    setShowCompleted:setShowCompleted,
+    saveData:saveData
 
 }
-// const toggleShow =()=>{
-//    state.showCompleted=!state.showCompleted;  
-// }
+useEffect(()=>{
+    
+const arr= getData("input");
+console.log({arr});
+setCount(arr.count);
+setShowCompleted(arr.show);
+},[showCompleted,count])
 return(
     <>
     <settingContext.Provider value={state}>
