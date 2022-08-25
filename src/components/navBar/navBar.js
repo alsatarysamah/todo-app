@@ -7,7 +7,7 @@ export default function NavBarToDo(){
     <div class="bp4-navbar-heading" className="link">TO DO</div>
   </div>
   <div class="bp4-navbar-group bp4-align-right">
-  <Link to={`/`} className="link" >Home</Link >
+  <Link to={`/todo-app`} className="link" >Home</Link >
     <Link to={`/userForm`}  className="link">Form</Link>
     <span class="bp4-navbar-divider"></span>
     <button class="bp4-button bp4-minimal bp4-icon-user"></button>
