@@ -63,8 +63,8 @@ const ToDo = () => {
   // useEffect(() => {}, [spacificItem]);
   ///////////////use effect count////////////////
   useEffect(() => {
-    console.log({ count });
-    console.log({ spacificItem });
+    // console.log({ count });
+    // console.log({ spacificItem });
     listLoop(count);
   }, [count]);
   ////////////listLoop//////////////////////////
