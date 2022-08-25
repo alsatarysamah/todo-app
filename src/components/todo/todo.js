@@ -2,15 +2,12 @@ import React, { useEffect, useState, useContext } from "react";
 import useForm from "../../hooks/form.js";
 import { settingContext } from "../../context/setting.js";
 import { v4 as uuid } from "uuid";
-import ItemsCard from "../itemCard/itemCard";
-import NavBarToDo from "../navBar/navBar";
-import Footer from "../footer/footer"
-import {
-  Button,
-  Card,
- 
-} from "@blueprintjs/core";
+import List from "../list/list.js";
+import { Button, Card } from "@blueprintjs/core";
 import "./todo.css";
+import UserForm from "../userForm/userForm";
+// import saveData,{getData} from "../../hooks/saveData.js";
+
 const ToDo = () => {
   const settings = useContext(settingContext);
   const [defaultValues] = useState({
@@ -24,11 +21,11 @@ const ToDo = () => {
 
   const [spacificItem, setSpacificItem] = useState([]);
   function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
   }
   /////add/////////////
   function addItem(item) {
-    item.id = getRndInteger(0,100);
+    item.id = getRndInteger(0, 100);
     item.complete = false;
     console.log(item);
     setList([...list, item]);
@@ -46,17 +43,14 @@ const ToDo = () => {
 
   function toggleComplete(id) {
     console.log("function ", settings.showCompleted);
-    if (settings.showCompleted) {
-      const items = list.map((item) => {
-        if (item.id == id) {
-          item.complete = !item.complete;
-        }
-        return item;
-      });
-      setList(items);
-    } else {
-      deleteItem(id);
-    }
+
+    const items = list.map((item) => {
+      if (item.id == id) {
+        item.complete = !item.complete;
+      }
+      return item;
+    });
+    setList(items);
   }
 
   useEffect(() => {
@@ -66,12 +60,11 @@ const ToDo = () => {
     document.title = `To Do List: ${incomplete}`;
   }, [list]);
   //////////use efect []
-  useEffect(() => {}, [spacificItem]);
+  // useEffect(() => {}, [spacificItem]);
   ///////////////use effect count////////////////
   useEffect(() => {
     console.log({ count });
-    // if(count==0)
-
+    console.log({ spacificItem });
     listLoop(count);
   }, [count]);
   ////////////listLoop//////////////////////////
@@ -104,8 +97,7 @@ const ToDo = () => {
 
   return (
     <>
-  <NavBarToDo></NavBarToDo>
-      <header>
+      <header className="title">
         <h1>To Do List: {incomplete} items pending</h1>
       </header>
 
@@ -113,13 +105,13 @@ const ToDo = () => {
   console.log( settings.showCompleted)
   settings.toggleShow()}}>Show Completed Item</button>
 <p>show is  {settings.showCompleted.toString()}</p> */}
-      <form onSubmit={handleSubmit} id="f">
+      <form onSubmit={handleSubmit} className="f">
         <h2>Add To Do Item</h2>
 
         <label>
           <span>To Do Item</span>
           <input
-          class="bp4-input"
+            class="bp4-input"
             onChange={handleChange}
             name="text"
             type="text"
@@ -130,7 +122,7 @@ const ToDo = () => {
         <label>
           <span>Assigned To</span>
           <input
-          class="bp4-input"
+            class="bp4-input"
             onChange={handleChange}
             name="assignee"
             type="text"
@@ -152,31 +144,27 @@ const ToDo = () => {
 
         <label>
           {/* <button type="submit">Add Item</button> */}
-          <Button class=".bp4-minimal" type="submit">Add Item</Button>
+          <Button class=".bp4-minimal" type="submit">
+            Add Item
+          </Button>
         </label>
       </form>
+      <List
+        toggleComplete={toggleComplete}
+        spacificItem={spacificItem}
+        show={settings.showCompleted}
+      ></List>
 
-      {spacificItem.map((item) => (
-        <Card key={item.id} interactive={true} class="bp4-elevation-4" >
-          <p>{item.text}</p>
-          <p>
-            <small>Assigned to: {item.assignee}</small>
-          </p>
-          <p>
-            <small>Difficulty: {item.difficulty}</small>
-          </p>
-          <div onClick={() => toggleComplete(item.id)}>
-            Complete: {item.complete.toString()}
-          </div>
-         
-        </Card>
-      ))}
-<div id="next">
-      <Button class=".bp4-minimal" onClick={decreaseCount}>prev</Button>
+      <div id="next">
+        <Button class=".bp4-minimal" onClick={decreaseCount}>
+          prev
+        </Button>
 
-      <Button class=".bp4-minimal" onClick={increaseCount}>next</Button>
+        <Button class=".bp4-minimal" onClick={increaseCount}>
+          next
+        </Button>
+        {/* <UserForm></UserForm> */}
       </div>
-     <Footer></Footer>
     </>
   );
 };

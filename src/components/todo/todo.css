@@ -3,7 +3,7 @@
 @import "~normalize.css";
 @import "~@blueprintjs/core/lib/css/blueprint.css";
 @import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
-#f{
+.f{
     display: flex;
     background-color:#FCE2DB;
     flex-direction: column;
@@ -17,6 +17,7 @@
     padding: 20px;
     justify-content: space-between;
     /* display: inline-block; */
+    margin-top: 10px;
     float: left;
 }
 .bp4-navbar{
@@ -27,6 +28,7 @@
     background-color:#cfb1de; 
     width: 30%;
     /* height:300px; */
+    position: relative;
     float: right; 
     justify-content: space-between;
     text-align: center;  
@@ -40,8 +42,15 @@
     /* background-color: #FF8FB1; */
     /* line-height: 50px; */
 }
-header{
+.title{
     justify-content: center;  
     margin-left: 600px;
     color: #7A4495;
 }
+.link{
+    margin: 8px;
+    /* textDecoration: "none"; */
+    color: #3d0b56;
+    font-weight: 600;
+
+  }
