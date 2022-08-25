@@ -20,7 +20,7 @@ export default class App extends React.Component {
   </Switch>
 </Router> */}
       <Routes>
-        <Route exact path="/todo-app" element={<ToDo />} />
+        <Route exact path="/" element={<ToDo />} />
         <Route exact   path="/userForm" element={<UserForm />} />
       </Routes>
       {/* <ToDo></ToDo> */}
