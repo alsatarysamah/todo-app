@@ -23,7 +23,7 @@ useEffect(()=>{
     
 const arr= getData("input");
 console.log({arr});
-if(arr.length>0)
+if(arr)
 {
     setCount(arr.count);
     setShowCompleted(arr.show);
