@@ -26,14 +26,12 @@ export default function UserForm() {
 
   return (
     <>
-    <h1 className="title">Choose the settings</h1>
-      <form class="bp4-form-group .modifier" className="f" onSubmit={storeData}>
+    {/* <h1 className="title">Choose the settings</h1>  className="f"*/}
+      <form class="bp4-form-group .modifier"  className="f" onSubmit={storeData}>
         <label>Count</label>
         <input name="count" type="text" placeholder="Items per page" />
 
         <label>Show Completed item</label>
-        {/* <input  name="show"
-                 type="checkbox" placeholder="Show completed item" onChange={handle}/> */}
         <label class="bp4-control bp4-switch .modifier">
           <input name="show" type="checkbox" />
           <span class="bp4-control-indicator"></span>

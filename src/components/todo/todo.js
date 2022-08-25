@@ -5,6 +5,7 @@ import { v4 as uuid } from "uuid";
 import List from "../list/list.js";
 import { Button, Card } from "@blueprintjs/core";
 import "./todo.css";
+import UserForm from "../userForm/userForm";
 // import saveData,{getData} from "../../hooks/saveData.js";
 
 const ToDo = () => {
@@ -30,7 +31,6 @@ const ToDo = () => {
     setList([...list, item]);
     if (count == 0 && spacificItem.length <= settings.count - 1) {
       setSpacificItem([...spacificItem, item]);
-      
     }
   }
 
@@ -43,15 +43,14 @@ const ToDo = () => {
 
   function toggleComplete(id) {
     console.log("function ", settings.showCompleted);
- 
-      const items = list.map((item) => {
-        if (item.id == id) {
-          item.complete = !item.complete;
-        }
-        return item;
-      });
-      setList(items);
- 
+
+    const items = list.map((item) => {
+      if (item.id == id) {
+        item.complete = !item.complete;
+      }
+      return item;
+    });
+    setList(items);
   }
 
   useEffect(() => {
@@ -61,12 +60,11 @@ const ToDo = () => {
     document.title = `To Do List: ${incomplete}`;
   }, [list]);
   //////////use efect []
-  useEffect(() => {}, [spacificItem]);
+  // useEffect(() => {}, [spacificItem]);
   ///////////////use effect count////////////////
   useEffect(() => {
     console.log({ count });
-    // if(count==0)
-
+    console.log({ spacificItem });
     listLoop(count);
   }, [count]);
   ////////////listLoop//////////////////////////
@@ -99,7 +97,6 @@ const ToDo = () => {
 
   return (
     <>
-    
       <header className="title">
         <h1>To Do List: {incomplete} items pending</h1>
       </header>
@@ -152,7 +149,11 @@ const ToDo = () => {
           </Button>
         </label>
       </form>
-      <List toggleComplete={toggleComplete} spacificItem={spacificItem} show={settings.showCompleted}></List>
+      <List
+        toggleComplete={toggleComplete}
+        spacificItem={spacificItem}
+        show={settings.showCompleted}
+      ></List>
 
       <div id="next">
         <Button class=".bp4-minimal" onClick={decreaseCount}>
@@ -164,8 +165,6 @@ const ToDo = () => {
         </Button>
         {/* <UserForm></UserForm> */}
       </div>
-      
-      
     </>
   );
 };
