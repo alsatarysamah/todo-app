@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/todo-app/static/css/main.959bec92.css",
-    "main.js": "/todo-app/static/js/main.fec1093c.js",
-    "static/js/787.2843ca88.chunk.js": "/todo-app/static/js/787.2843ca88.chunk.js",
-    "static/media/blueprint-icons-20.eot?": "/todo-app/static/media/blueprint-icons-20.41ddc43fc03d2ac8fce8.eot",
-    "static/media/blueprint-icons-20.ttf?": "/todo-app/static/media/blueprint-icons-20.825b946a5ee739f0afc3.ttf",
-    "static/media/blueprint-icons-16.eot?": "/todo-app/static/media/blueprint-icons-16.98964adeba68b1b17c20.eot",
-    "static/media/blueprint-icons-16.ttf?": "/todo-app/static/media/blueprint-icons-16.abe3132a7d0bbe40b29d.ttf",
-    "static/media/blueprint-icons-20.woff?": "/todo-app/static/media/blueprint-icons-20.e0aecc6e392a3ac2ab9f.woff",
-    "static/media/blueprint-icons-16.woff?": "/todo-app/static/media/blueprint-icons-16.f2f2fc3de57c69a4f24c.woff",
-    "static/media/blueprint-icons-20.woff2?": "/todo-app/static/media/blueprint-icons-20.f6c7480ba6e25de3baff.woff2",
-    "static/media/blueprint-icons-16.woff2?": "/todo-app/static/media/blueprint-icons-16.1cfa3606a45bf6aaf201.woff2",
+    "main.css": "/todo-app/static/css/main.966e53a1.chunk.css",
+    "main.js": "/todo-app/static/js/main.a9a92532.chunk.js",
+    "main.js.map": "/todo-app/static/js/main.a9a92532.chunk.js.map",
+    "runtime-main.js": "/todo-app/static/js/runtime-main.6d543b58.js",
+    "runtime-main.js.map": "/todo-app/static/js/runtime-main.6d543b58.js.map",
+    "static/css/2.076a727c.chunk.css": "/todo-app/static/css/2.076a727c.chunk.css",
+    "static/js/2.e4881ef8.chunk.js": "/todo-app/static/js/2.e4881ef8.chunk.js",
+    "static/js/2.e4881ef8.chunk.js.map": "/todo-app/static/js/2.e4881ef8.chunk.js.map",
+    "static/js/3.5a23df4e.chunk.js": "/todo-app/static/js/3.5a23df4e.chunk.js",
+    "static/js/3.5a23df4e.chunk.js.map": "/todo-app/static/js/3.5a23df4e.chunk.js.map",
     "index.html": "/todo-app/index.html",
-    "main.959bec92.css.map": "/todo-app/static/css/main.959bec92.css.map",
-    "main.fec1093c.js.map": "/todo-app/static/js/main.fec1093c.js.map",
-    "787.2843ca88.chunk.js.map": "/todo-app/static/js/787.2843ca88.chunk.js.map"
+    "static/css/2.076a727c.chunk.css.map": "/todo-app/static/css/2.076a727c.chunk.css.map",
+    "static/css/main.966e53a1.chunk.css.map": "/todo-app/static/css/main.966e53a1.chunk.css.map",
+    "static/js/2.e4881ef8.chunk.js.LICENSE.txt": "/todo-app/static/js/2.e4881ef8.chunk.js.LICENSE.txt",
+    "static/media/todo.css": "/todo-app/static/media/blueprint-icons-20.f6c7480b.woff2"
   },
   "entrypoints": [
-    "static/css/main.959bec92.css",
-    "static/js/main.fec1093c.js"
+    "static/js/runtime-main.6d543b58.js",
+    "static/css/2.076a727c.chunk.css",
+    "static/js/2.e4881ef8.chunk.js",
+    "static/css/main.966e53a1.chunk.css",
+    "static/js/main.a9a92532.chunk.js"
   ]
 }
