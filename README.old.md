@@ -71,3 +71,7 @@ Test Driven Development, using Jest
 Tests will be runnable locally
 
 Deployment to cloud provider
+
+Why does the state reset in functional react component when changing between pages using `react-router`
+
+React Router - reset state when switching route

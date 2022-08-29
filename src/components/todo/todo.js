@@ -6,39 +6,50 @@ import List from "../list/list.js";
 import { Button, Card } from "@blueprintjs/core";
 import "./todo.css";
 import UserForm from "../userForm/userForm";
-// import saveData,{getData} from "../../hooks/saveData.js";
-
+import {When} from 'react-if';
+import { LoginContext } from "../../context/login"
+import saveData,{getData} from "../../hooks/saveData.js";
+import Auth from "../auth/auth"
 const ToDo = () => {
+  
   const settings = useContext(settingContext);
+  const login = useContext(LoginContext);
+  console.log({settingContext});
   const [defaultValues] = useState({
     difficulty: 4,
   });
   const [list, setList] = useState([]);
+  // saveData("count",count)
   const [count, setCount] = useState(0);
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
   const items = [];
-
+// let counLS=
   const [spacificItem, setSpacificItem] = useState([]);
   function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
   /////add/////////////
   function addItem(item) {
-    item.id = getRndInteger(0, 100);
+    item.id = uuid();
     item.complete = false;
     console.log(item);
+   
     setList([...list, item]);
+    saveData("list",list)
     if (count == 0 && spacificItem.length <= settings.count - 1) {
       setSpacificItem([...spacificItem, item]);
     }
   }
 
   function deleteItem(id) {
-    const items = list.filter((item) => item.id !== id);
-    const items2 = spacificItem.filter((item) => item.id !== id);
+    // const items = list.filter((item) => item.id !== id);
+    // const items2 = spacificItem.filter((item) => item.id !== id);
+    // setList(items);
+    const items = list.filter( item => item.id !== id );
     setList(items);
-    setSpacificItem(items2);
+    console.log({list});
+    // setSpacificItem(items2);
   }
 
   function toggleComplete(id) {
@@ -59,30 +70,32 @@ const ToDo = () => {
     // console.log(settings.count);
     document.title = `To Do List: ${incomplete}`;
   }, [list]);
-  //////////use efect []
-  // useEffect(() => {}, [spacificItem]);
+
   ///////////////use effect count////////////////
   useEffect(() => {
-    // console.log({ count });
-    // console.log({ spacificItem });
+  console.log({count});
+  saveData("count",count)
     listLoop(count);
   }, [count]);
   ////////////listLoop//////////////////////////
   function listLoop(i) {
+    // let arr=getData("list");
+    // if(arr)
     if (i >= 0 && i < Math.ceil(list.length / settings.count))
       for (
         let x = count * settings.count;
         x <= count * settings.count + (settings.count - 1);
         x++
       ) {
-        if (list[x]) items.push(list[x]);
+        if (list[x])
+         items.push(list[x]);
       }
     setSpacificItem(items);
   }
   //////////////////////////
   function increaseCount() {
+    console.log("increase");
     let newCounter = count + 1;
-    // setSpacificItem([]);
     for (let i = 0; i < items.length; i++) items.pop();
     if (newCounter < Math.ceil(list.length / settings.count))
       setCount(newCounter);
@@ -90,21 +103,21 @@ const ToDo = () => {
 
   function decreaseCount() {
     let newCounter = count - 1;
-    // setSpacificItem([]);
-    for (let i = 0; i < items.length; i++) items.pop();
-    if (newCounter >= 0) setCount(newCounter);
-  }
 
+    for (let i = 0; i < items.length; i++) items.pop();
+    if (newCounter >= 0) 
+    setCount(newCounter);
+  }
+  // if (match === null) return <></>;
   return (
     <>
+    <When condition={login.loggedIn}>
+      <Auth action="read">
       <header className="title">
         <h1>To Do List: {incomplete} items pending</h1>
       </header>
-
-      {/* <button onClick={()=>{
-  console.log( settings.showCompleted)
-  settings.toggleShow()}}>Show Completed Item</button>
-<p>show is  {settings.showCompleted.toString()}</p> */}
+      </Auth>
+      <Auth action="create">
       <form onSubmit={handleSubmit} className="f">
         <h2>Add To Do Item</h2>
 
@@ -149,12 +162,15 @@ const ToDo = () => {
           </Button>
         </label>
       </form>
+      </Auth>
+      <Auth action="read">
       <List
         toggleComplete={toggleComplete}
         spacificItem={spacificItem}
         show={settings.showCompleted}
+        deleteItem={deleteItem}
       ></List>
-
+</Auth>
       <div id="next">
         <Button class=".bp4-minimal" onClick={decreaseCount}>
           prev
@@ -165,6 +181,8 @@ const ToDo = () => {
         </Button>
         {/* <UserForm></UserForm> */}
       </div>
+     
+      </When>
     </>
   );
 };
