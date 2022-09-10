@@ -16,21 +16,21 @@ const state={
     showCompleted:showCompleted,
     setCount:setCount,
     setShowCompleted:setShowCompleted,
-    // saveData:saveData
+    saveData:saveData
 
 }
-// useEffect(()=>{
+useEffect(()=>{
     
-// const arr= getData("input");
-// console.log({arr});
-// if(arr)
-// {
-//     setCount(arr.count);
-//     setShowCompleted(arr.show);
+const arr= getData("input");
+console.log({arr});
+if(arr)
+{
+    setCount(arr.count);
+    setShowCompleted(arr.show);
 
 
-// }
-// },[showCompleted,count])
+}
+},[showCompleted,count])
 return(
     <>
     <settingContext.Provider value={state}>
