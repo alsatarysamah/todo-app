@@ -20,7 +20,20 @@
     margin-top: 10px;
     float: left;
 }
-
+.bp4-navbar{
+    background-color:#FF8FB1; 
+    color: black;
+}
+.bp4-elevation-4{
+    background-color:#cfb1de; 
+    width: 30%;
+    /* height:300px; */
+    position: relative;
+    float: right; 
+    justify-content: space-between;
+    text-align: center;  
+    margin: 10px 10px 10px 10px;
+}
 #next{
     margin-top: 350px;
     justify-content: center;

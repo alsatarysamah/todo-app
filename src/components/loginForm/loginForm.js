@@ -32,7 +32,6 @@ export default function LoginForm(props) {
               <input
                 type="text"
                 name="uname"
-                placeholder="admin"
                 required
                 onChange={usernameHandler}
               />
@@ -41,8 +40,7 @@ export default function LoginForm(props) {
             <div className="input-container">
               <label>Password </label>
               <input
-                type="text"
-                placeholder="123"
+                type="password"
                 name="pass"
                 required
                 onChange={passwordHandler}

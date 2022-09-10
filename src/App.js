@@ -27,7 +27,7 @@ export default class App extends React.Component {
       <>
         <Login>
           <NavBarToDo></NavBarToDo>
-          <LoginForm></LoginForm>
+          {/* <LoginForm></LoginForm> */}
           <Settings>
             <Routes>
               <Route path="/todo-app"  element={<ToDo />} />
